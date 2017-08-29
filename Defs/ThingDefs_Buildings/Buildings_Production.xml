@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef ParentName="BenchBase">
+    <DefName>TableButcher</DefName>
+    <label>butcher table</label>
+    <ThingClass>Building_WorkTable</ThingClass>
+    <Description>A heavy table for butchering dead creatures into pieces of raw meat.</Description>
+    <graphicData>
+      <texPath>Things/Building/Production/TableButcher</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3.5,1.5)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <costStuffCount>75</costStuffCount>
+    <CostList>
+      <WoodLog>20</WoodLog>
+    </CostList>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+    </stuffCategories>
+    <AltitudeLayer>Building</AltitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+      <MaxHitPoints>180</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Cleanliness>-15</Cleanliness>
+    </statBases>
+    <Size>(3,1)</Size>
+    <DesignationCategory>Production</DesignationCategory>
+    <Passability>PassThroughOnly</Passability>
+    <pathCost>60</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <recipes>
+      <li>ButcherCorpseFlesh</li>
+      <li>MakeKibble</li>
+	  <li>AutopsyBasic</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ToolCabinet</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <designationHotKey>Misc3</designationHotKey>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+  </ThingDef>
+
+  <ThingDef ParentName="FurnitureBase">
+    <defName>TableAutopsy</defName>
+    <label>autopsy table</label>
+    <Description>A table specially designed for deceased people. Allows for surgical removal of organs.</Description>
+    <ThingClass>Building_WorkTable</ThingClass>
+    <graphicData>
+      <texPath>Things/Building/Furniture/Bed/HospitalBed</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(3,4)</drawSize>
+    </graphicData>
+    <AltitudeLayer>Building</AltitudeLayer>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>2850</WorkToBuild>
+      <Mass>45</Mass>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <Size>(1,2)</Size>
+	<DesignationCategory>Production</DesignationCategory>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>40</costStuffCount>
+    <costList>
+      <Steel>80</Steel>
+    </costList>
+	<hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+	<recipes>
+		<li>AutopsyBasic</li>
+		<li>AutopsyAdvanced</li>
+		<li>AutopsyGlitterworld</li>
+	</recipes>
+	<inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <Bed_ShowSleeperBody>True</Bed_ShowSleeperBody>
+      <bed_healPerDay>9</bed_healPerDay>
+      <bed_defaultMedical>true</bed_defaultMedical>
+	  <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <fillPercent>0.4</fillPercent>
+    <PathCost>60</PathCost>
+    <LeaveResourcesWhenKilled>True</LeaveResourcesWhenKilled>
+    <StaticSunShadowHeight>0.17</StaticSunShadowHeight>
+    <CastEdgeShadows>True</CastEdgeShadows>
+    <designationHotkey>Misc5</designationHotkey>
+    <Passability>PassThroughOnly</Passability>
+    <DrawGUIOverlay>True</DrawGUIOverlay>
+    <canOverlapZones>false</canOverlapZones>
+    <researchPrerequisites><li>AdvancedAutopsy</li></researchPrerequisites>
+  </ThingDef>
+  
+</ThingDefs>
