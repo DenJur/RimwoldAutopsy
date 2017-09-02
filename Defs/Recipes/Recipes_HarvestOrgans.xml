@@ -165,7 +165,7 @@
 				<minLevel>15</minLevel>
 			</li>
 		</skillRequirements>
-		<researchPrerequisite>AdvancedAutopsy</researchPrerequisite>
+		<researchPrerequisite>GlitterworldAutopsy</researchPrerequisite>
 	</RecipeDef>
 	
 </RecipeDefs>
