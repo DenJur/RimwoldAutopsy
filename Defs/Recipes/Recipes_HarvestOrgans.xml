@@ -46,6 +46,9 @@
         <li>AllowCorpsesStranger</li>
       </specialFiltersToAllow>
     </defaultIngredientFilter>
+	<recipeUsers>
+		<li>TableButcher</li>
+	</recipeUsers>
 	<researchPrerequisite>BasicAutopsy</researchPrerequisite>
   </RecipeDef>
 	
