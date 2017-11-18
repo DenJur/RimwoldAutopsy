@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef ParentName="FurnitureBase">
     <defName>TableAutopsy</defName>
     <label>autopsy table</label>
-    <Description>A table specially designed for deceased people. Allows for surgical removal of organs.</Description>
-    <ThingClass>Building_WorkTable</ThingClass>
+    <description>A table specially designed for deceased people. Allows for surgical removal of organs.</description>
+    <thingClass>Building_WorkTable</thingClass>
     <graphicData>
       <texPath>Things/Building/Furniture/Bed/HospitalBed</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
       <drawSize>(3,4)</drawSize>
     </graphicData>
-    <AltitudeLayer>Building</AltitudeLayer>
+    <altitudeLayer>Building</altitudeLayer>
     <statBases>
       <MaxHitPoints>150</MaxHitPoints>
       <WorkToBuild>2850</WorkToBuild>
       <Mass>45</Mass>
       <Flammability>1.0</Flammability>
     </statBases>
-    <Size>(1,2)</Size>
-	<DesignationCategory>Production</DesignationCategory>
+    <size>(1,2)</size>
+	<designationCategory>Production</designationCategory>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
@@ -40,21 +40,21 @@
       <li>ITab_Bills</li>
     </inspectorTabs>
     <building>
-      <Bed_ShowSleeperBody>True</Bed_ShowSleeperBody>
-      <bed_healPerDay>9</bed_healPerDay>
+      <bed_showSleeperBody>True</bed_showSleeperBody>
+      <bed_healPerDay>0</bed_healPerDay>
       <bed_defaultMedical>true</bed_defaultMedical>
 	  <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
     </building>
     <fillPercent>0.4</fillPercent>
-    <PathCost>60</PathCost>
-    <LeaveResourcesWhenKilled>True</LeaveResourcesWhenKilled>
-    <StaticSunShadowHeight>0.17</StaticSunShadowHeight>
-    <CastEdgeShadows>True</CastEdgeShadows>
-    <designationHotkey>Misc5</designationHotkey>
-    <Passability>PassThroughOnly</Passability>
-    <DrawGUIOverlay>True</DrawGUIOverlay>
+    <pathCost>60</pathCost>
+    <leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+    <staticSunShadowHeight>0.17</staticSunShadowHeight>
+    <castEdgeShadows>True</castEdgeShadows>
+    <designationHotKey>Misc5</designationHotKey>
+    <passability>PassThroughOnly</passability>
+    <drawGUIOverlay>True</drawGUIOverlay>
     <canOverlapZones>false</canOverlapZones>
     <researchPrerequisites><li>AdvancedAutopsy</li></researchPrerequisites>
   </ThingDef>
   
-</ThingDefs>
+</Defs>

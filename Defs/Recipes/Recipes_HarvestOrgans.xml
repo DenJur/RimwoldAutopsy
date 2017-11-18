@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<RecipeDefs>
+<Defs>
 
   <RecipeDef>
 		<defName>AutopsyBasic</defName>
@@ -99,10 +99,7 @@
       </specialFiltersToAllow>
     </defaultIngredientFilter>
 		<skillRequirements>
-			<li>
-				<skill>Medicine</skill>
-				<minLevel>8</minLevel>
-			</li>
+			<Medicine>8</Medicine>
 		</skillRequirements>
 		<researchPrerequisite>AdvancedAutopsy</researchPrerequisite>
 	</RecipeDef>
@@ -115,7 +112,7 @@
 		<workAmount>1000</workAmount>
 		<workSpeedStat>MedicalOperationSpeed</workSpeedStat>
     <workSkill>Medicine</workSkill>
-	<workSkillLearnFactor>20</workSkillLearnFactor>
+	<workSkillLearnFactor>25</workSkillLearnFactor>
 		<efficiencyStat>ButcheryFleshEfficiency</efficiencyStat>
     <effectWorking>Surgery</effectWorking>
     <soundWorking>Recipe_Surgery</soundWorking>
@@ -163,12 +160,9 @@
       </specialFiltersToAllow>
     </defaultIngredientFilter>
 		<skillRequirements>
-			<li>
-				<skill>Medicine</skill>
-				<minLevel>15</minLevel>
-			</li>
+			<Medicine>15</Medicine>
 		</skillRequirements>
 		<researchPrerequisite>GlitterworldAutopsy</researchPrerequisite>
 	</RecipeDef>
 	
-</RecipeDefs>
+</Defs>

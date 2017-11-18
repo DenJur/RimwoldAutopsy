@@ -16,11 +16,9 @@ namespace Autopsy
             if (Constants.RecipeDictionary.ContainsKey(recipeDef.defName))
             {
                 List<Thing> result = __result as List<Thing> ?? __result.ToList();
-                float skillChance = 1f;
+                float skillChance = 1.5f;
                 skillChance *= worker.GetStatValue(StatDefOf.MedicalSurgerySuccessChance);
-                Room room = worker.GetRoom();
-                if (room != null)
-                    skillChance *= room.GetStat(RoomStatDefOf.SurgerySuccessChanceFactor);
+                skillChance *= recipeDef.surgerySuccessChanceFactor;
                 foreach (Corpse corpse in ingredients.OfType<Corpse>())
                     result.AddRange(
                         NewMedicaRecipesUtility.TraverseBody(Constants.RecipeDictionary.GetValueSafe(recipeDef.defName),

@@ -30,7 +30,7 @@
 
 	<ResearchProjectDef>
 		<defName>GlitterworldAutopsy</defName>
-		<label>Advanced Autopsy</label>
+		<label>Glitterworld Autopsy</label>
 		<description>With the right tools, training and technology, you can perserve human organs with the same success chance as in the core planets.</description>
 		<baseCost>4000</baseCost>
 		<tab>Autopsy</tab>
