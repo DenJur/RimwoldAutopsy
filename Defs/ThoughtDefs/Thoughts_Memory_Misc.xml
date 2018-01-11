@@ -4,7 +4,7 @@
 	<ThoughtDef>
 			<defName>ButcheredHumanlikeCorpse</defName>
 			<durationDays>3.0</durationDays>
-			<stackLimit>4</stackLimit>
+			<stackLimit>3</stackLimit>
 			<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
 			<nullifyingTraits>
 				<li>Psychopath</li>

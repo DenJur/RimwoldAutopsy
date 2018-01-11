@@ -16,7 +16,7 @@
 	<ResearchProjectDef>
 		<defName>AdvancedAutopsy</defName>
 		<label>Advanced Autopsy</label>
-		<description>Skilled medical skills allows for humane organ extraction. People won't be disgusted by it. This research unlocks the autopsy table.</description>
+		<description>Advanced procedures allows for a more humane and precise organ extraction. This research unlocks the autopsy table.</description>
 		<baseCost>2000</baseCost>
 		<tab>Autopsy</tab>
 		<techLevel>Industrial</techLevel>

@@ -6,7 +6,7 @@
 		<label>butcher creature for organs</label>
 		<description>Butchers a creature to obtain its internal organs while still fresh.</description>
 		<jobString>Butchering.</jobString>
-		<workAmount>1500</workAmount>
+		<workAmount>500</workAmount>
 		<workSpeedStat>ButcheryFleshSpeed</workSpeedStat>
     <workSkill>Cooking</workSkill>
 		<efficiencyStat>ButcheryFleshEfficiency</efficiencyStat>
@@ -163,6 +163,37 @@
 			<Medicine>15</Medicine>
 		</skillRequirements>
 		<researchPrerequisite>GlitterworldAutopsy</researchPrerequisite>
+	</RecipeDef>
+	
+	<RecipeDef>
+		<defName>BurnBodyParts</defName>
+		<label>burn body parts</label>
+		<description>Burn natural body parts to completely destroy them.</description>
+		<jobString>Burning body parts.</jobString>
+		<workAmount>40</workAmount>
+		<requiredGiverWorkType>Hauling</requiredGiverWorkType>
+		<effectWorking>BurnDrug</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<conceptLearned>DrugBurning</conceptLearned>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>BodyPartsNatural</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>BodyPartsNatural</li>
+			</categories>
+		</fixedIngredientFilter>
+		<recipeUsers>
+		<li>Campfire</li>
+		<li>ElectricCrematorium</li>
+	</recipeUsers>
 	</RecipeDef>
 	
 </Defs>

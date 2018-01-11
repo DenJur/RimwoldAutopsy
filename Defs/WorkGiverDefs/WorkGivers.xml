@@ -7,7 +7,7 @@
     <label>butcher for organs</label>
     <giverClass>WorkGiver_DoBill</giverClass>
     <workType>Cooking</workType>
-    <priorityInType>90</priorityInType>
+    <priorityInType>95</priorityInType>
     <fixedBillGiverDefs>
       <li>TableButcher</li>
     </fixedBillGiverDefs>
@@ -24,7 +24,7 @@
     <label>medically extract organs</label>
     <giverClass>WorkGiver_DoBill</giverClass>
     <workType>Doctor</workType>
-    <priorityInType>80</priorityInType>
+    <priorityInType>75</priorityInType>
 	<fixedBillGiverDefs>
 	  <li>TableAutopsy</li>
     </fixedBillGiverDefs>
