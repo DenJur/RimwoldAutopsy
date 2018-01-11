@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Verse;
 
 namespace Autopsy
 {
@@ -9,12 +10,12 @@ namespace Autopsy
         public const string AutopsyAnimal = "AutopsyAnimal";
         public const string AutopsyGlitterworld = "AutopsyGlitterworld";
 
-        public static readonly Dictionary<string, RecipeInfo> RecipeDictionary = new Dictionary<string, RecipeInfo>
-        {
-            {AutopsyBasic, new RecipeInfo(0.4f, 7500, -1f)},
-            {AutopsyAdvanced, new RecipeInfo(0.8f, 15000, 0.6f)},
-            {AutopsyAnimal, new RecipeInfo(-1f, 15000, 0.6f)},
-            {AutopsyGlitterworld, new RecipeInfo(0.95f, 30000, 0.8f)}
-        };
+//        public static readonly Dictionary<string, RecipeInfo> RecipeDictionary = new Dictionary<string, RecipeInfo>
+//        {
+//            { "autopsyBasicTab".Translate(), new RecipeInfo(0.4f, 3, 0f, 99)},
+//            { "autopsyAdvancedTab".Translate(), new RecipeInfo(0.8f, 6, 0.6f, 99)},
+//            {"autopsyAnimalTab".Translate(), new RecipeInfo(0f, 6, 0.6f, 99)},
+//            {"autopsyGlitterTab".Translate(), new RecipeInfo(0.95f, 12, 0.8f, 99)}
+//        };
     }
 }

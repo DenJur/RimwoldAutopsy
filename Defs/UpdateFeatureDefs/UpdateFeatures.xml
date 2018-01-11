@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+		<modNameReadable>Harvest Organs Post Mortem</modNameReadable>
+		<modIdentifier>Autopsy</modIdentifier>
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1204502413</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>Autopsy_2_7_0</defName>
+		<assemblyVersion>2.7.0</assemblyVersion>
+		<content>Harvest Organs Post Mortem mod had a major update. Now you are able to modify all of the mods settings from game settings menu.|
+Options include:		
+- Harvest chances for both natural organs and bionics.
+- Age of the corpse at which it is still possible to harvest natural organs.
+- Scaling for pawns medical surgery success chance while performing autopsy.
+- &lt;color=#890000ff&gt;&lt;b&gt;!New!&lt;/b&gt;&lt;/color&gt; Maximal number of organs/bionics that can be harvested in a single operation. 
+		</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>

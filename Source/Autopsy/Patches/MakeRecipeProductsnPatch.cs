@@ -13,18 +13,54 @@ namespace Autopsy
         public static void Postfix(ref IEnumerable<Thing> __result, RecipeDef recipeDef, Pawn worker,
             List<Thing> ingredients)
         {
-            if (Constants.RecipeDictionary.ContainsKey(recipeDef.defName))
+            RecipeInfo recipeSettings = null;
+            float skillChance = worker.GetStatValue(StatDefOf.MedicalSurgerySuccessChance);
+            switch (recipeDef.defName)
             {
-                List<Thing> result = __result as List<Thing> ?? __result.ToList();
-                float skillChance = 1.5f;
-                skillChance *= worker.GetStatValue(StatDefOf.MedicalSurgerySuccessChance);
-                skillChance *= recipeDef.surgerySuccessChanceFactor;
-                foreach (Corpse corpse in ingredients.OfType<Corpse>())
-                    result.AddRange(
-                        NewMedicaRecipesUtility.TraverseBody(Constants.RecipeDictionary.GetValueSafe(recipeDef.defName),
-                            corpse, skillChance));
-                __result = result;
+                case Constants.AutopsyBasic:
+                    recipeSettings = new RecipeInfo(
+                        Mod.BasicAutopsyOrganMaxChance.Value,
+                        Mod.BasicAutopsyCorpseAge.Value * 2500,
+                        Mod.BasicAutopsyBionicMaxChance.Value,
+                        Mod.BasicAutopsyMaxNumberOfOrgans.Value
+                    );
+                    skillChance *= Mod.BasicAutopsyMedicalSkillScaling.Value;
+                    break;
+                case Constants.AutopsyAdvanced:
+                    recipeSettings = new RecipeInfo(
+                        Mod.AdvancedAutopsyOrganMaxChance.Value,
+                        Mod.AdvancedAutopsyCorpseAge.Value * 2500,
+                        Mod.AdvancedAutopsyBionicMaxChance.Value,
+                        Mod.AdvancedAutopsyMaxNumberOfOrgans.Value
+                    );
+                    skillChance *= Mod.AdvancedAutopsyMedicalSkillScaling.Value;
+                    break;
+                case Constants.AutopsyGlitterworld:
+                    recipeSettings = new RecipeInfo(
+                        Mod.GlitterAutopsyOrganMaxChance.Value,
+                        Mod.GlitterAutopsyCorpseAge.Value * 2500,
+                        Mod.GlitterAutopsyBionicMaxChance.Value,
+                        Mod.GlitterAutopsyMaxNumberOfOrgans.Value
+                    );
+                    skillChance *= Mod.GlitterAutopsyMedicalSkillScaling.Value;
+                    break;
+                case Constants.AutopsyAnimal:
+                    recipeSettings = new RecipeInfo(
+                        0f,
+                        0,
+                        Mod.AnimalAutopsyBionicMaxChance.Value,
+                        Mod.AnimalAutopsyMaxNumberOfOrgans.Value
+                    );
+                    skillChance *= Mod.AnimalAutopsyMedicalSkillScaling.Value;
+                    break;
             }
+
+            if (recipeSettings == null) return;
+            List<Thing> result = __result as List<Thing> ?? __result.ToList();
+            foreach (Corpse corpse in ingredients.OfType<Corpse>())
+                result.AddRange(
+                    NewMedicaRecipesUtility.TraverseBody(recipeSettings, corpse, skillChance));
+            __result = result;
         }
     }
 }

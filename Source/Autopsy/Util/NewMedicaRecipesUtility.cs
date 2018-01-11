@@ -29,6 +29,13 @@ namespace Autopsy
                     continue;
                 queue.AddRange(part.parts.Where(x => !hediffSet.PartIsMissing(x)));
             }
+
+            if (results.Count > recipeInfo.PartNumber)
+            {
+                var random = new Random();
+               return results.OrderBy(i=>random.Next()).Take(recipeInfo.PartNumber);
+            }
+
             return results;
         }
 
