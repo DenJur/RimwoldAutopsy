@@ -7,10 +7,9 @@
 		<description>Butchers a creature to obtain its internal organs while still fresh.</description>
 		<jobString>Butchering.</jobString>
 		<workAmount>500</workAmount>
-		<workSpeedStat>ButcheryFleshSpeed</workSpeedStat>
+		<workSpeedStat>MedicalOperationSpeed</workSpeedStat>
     <workSkill>Medicine</workSkill>
-		<efficiencyStat>ButcheryFleshEfficiency</efficiencyStat>
-    <effectWorking>ButcherFlesh</effectWorking>
+    <effectWorking>Surgery</effectWorking>
     <soundWorking>Recipe_ButcherCorpseFlesh</soundWorking>
     <ingredients>
 			<li>
@@ -61,7 +60,6 @@
 		<workSpeedStat>MedicalOperationSpeed</workSpeedStat>
     <workSkill>Medicine</workSkill>
 	<workSkillLearnFactor>20</workSkillLearnFactor>
-		<efficiencyStat>ButcheryFleshEfficiency</efficiencyStat>
     <effectWorking>Surgery</effectWorking>
     <soundWorking>Recipe_Surgery</soundWorking>
     <ingredients>
@@ -113,7 +111,6 @@
 		<workSpeedStat>MedicalOperationSpeed</workSpeedStat>
     <workSkill>Medicine</workSkill>
 	<workSkillLearnFactor>25</workSkillLearnFactor>
-		<efficiencyStat>ButcheryFleshEfficiency</efficiencyStat>
     <effectWorking>Surgery</effectWorking>
     <soundWorking>Recipe_Surgery</soundWorking>
     <ingredients>
