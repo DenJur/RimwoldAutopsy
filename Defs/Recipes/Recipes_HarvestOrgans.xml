@@ -8,7 +8,7 @@
 		<jobString>Butchering.</jobString>
 		<workAmount>500</workAmount>
 		<workSpeedStat>ButcheryFleshSpeed</workSpeedStat>
-    <workSkill>Cooking</workSkill>
+    <workSkill>Medicine</workSkill>
 		<efficiencyStat>ButcheryFleshEfficiency</efficiencyStat>
     <effectWorking>ButcherFlesh</effectWorking>
     <soundWorking>Recipe_ButcherCorpseFlesh</soundWorking>
