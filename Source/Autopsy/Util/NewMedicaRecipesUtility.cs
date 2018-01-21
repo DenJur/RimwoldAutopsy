@@ -47,7 +47,7 @@ namespace Autopsy
                 CompRottable rot = corpse.TryGetComp<CompRottable>();
                 if ((rot == null
                         ? corpse.Age <= recipeInfo.CorpseValidAge
-                        : rot.RotProgress <= recipeInfo.CorpseValidAge) &&
+                        : rot.RotProgress+((corpse.Age-rot.RotProgress)*recipeInfo.FrozenDecay) <= recipeInfo.CorpseValidAge) &&
                     Rand.Chance(Math.Min(skillChance, recipeInfo.NaturalChance)))
                     result.Add(ThingMaker.MakeThing(part.def.spawnThingOnRemoved));
                 return true;

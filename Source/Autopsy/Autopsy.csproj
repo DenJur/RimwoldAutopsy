@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Util\Constants.cs" />
-    <Compile Include="Patches\MakeRecipeProductsnPatch.cs" />
+    <Compile Include="Patches\MakeRecipeProductsPatch.cs" />
     <Compile Include="Util\NewMedicaRecipesUtility.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

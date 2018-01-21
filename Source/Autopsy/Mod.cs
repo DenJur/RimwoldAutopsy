@@ -17,18 +17,21 @@ namespace Autopsy
         internal static SettingHandle<int> BasicAutopsyCorpseAge;
         internal static SettingHandle<float> BasicAutopsyBionicMaxChance;
         internal static SettingHandle<float> BasicAutopsyMedicalSkillScaling;
+        internal static SettingHandle<float> BasicAutopsyFrozenDecay;
 
         internal static SettingHandle<int> AdvancedAutopsyMaxNumberOfOrgans;
         internal static SettingHandle<float> AdvancedAutopsyOrganMaxChance;
         internal static SettingHandle<int> AdvancedAutopsyCorpseAge;
         internal static SettingHandle<float> AdvancedAutopsyBionicMaxChance;
         internal static SettingHandle<float> AdvancedAutopsyMedicalSkillScaling;
+        internal static SettingHandle<float> AdvancedAutopsyFrozenDecay;
 
         internal static SettingHandle<int> GlitterAutopsyMaxNumberOfOrgans;
         internal static SettingHandle<float> GlitterAutopsyOrganMaxChance;
         internal static SettingHandle<int> GlitterAutopsyCorpseAge;
         internal static SettingHandle<float> GlitterAutopsyBionicMaxChance;
         internal static SettingHandle<float> GlitterAutopsyMedicalSkillScaling;
+        internal static SettingHandle<float> GlitterAutopsyFrozenDecay;
 
         internal static SettingHandle<int> AnimalAutopsyMaxNumberOfOrgans;
         internal static SettingHandle<float> AnimalAutopsyBionicMaxChance;
@@ -87,6 +90,12 @@ namespace Autopsy
             BasicAutopsyMedicalSkillScaling.CustomDrawer =
                 rect => SettingUIUtil.CustomDrawer_Filter(rect, BasicAutopsyMedicalSkillScaling, 0, 10.0f);
             BasicAutopsyMedicalSkillScaling.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[0];
+            BasicAutopsyFrozenDecay =
+                Settings.GetHandle("basicAutopsyDecay", "frozenDecayTitle".Translate(),
+                    "frozenDecayDescription".Translate(), 0f);
+            BasicAutopsyFrozenDecay.CustomDrawer =
+                rect => SettingUIUtil.CustomDrawer_Filter(rect, BasicAutopsyFrozenDecay, 0, 1.0f);
+            BasicAutopsyFrozenDecay.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[0];
 
             //Advanced
             AdvancedAutopsyOrganMaxChance =
@@ -117,6 +126,12 @@ namespace Autopsy
             AdvancedAutopsyMedicalSkillScaling.CustomDrawer =
                 rect => SettingUIUtil.CustomDrawer_Filter(rect, AdvancedAutopsyMedicalSkillScaling, 0, 10.0f);
             AdvancedAutopsyMedicalSkillScaling.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[1];
+            AdvancedAutopsyFrozenDecay =
+                Settings.GetHandle("advancedAutopsyDecay", "frozenDecayTitle".Translate(),
+                    "frozenDecayDescription".Translate(), 0f);
+            AdvancedAutopsyFrozenDecay.CustomDrawer =
+                rect => SettingUIUtil.CustomDrawer_Filter(rect, AdvancedAutopsyFrozenDecay, 0, 1.0f);
+            AdvancedAutopsyFrozenDecay.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[1];
 
             //Glitter
             GlitterAutopsyOrganMaxChance =
@@ -147,6 +162,12 @@ namespace Autopsy
             GlitterAutopsyMedicalSkillScaling.CustomDrawer =
                 rect => SettingUIUtil.CustomDrawer_Filter(rect, GlitterAutopsyMedicalSkillScaling, 0, 10.0f);
             GlitterAutopsyMedicalSkillScaling.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[2];
+            GlitterAutopsyFrozenDecay =
+                Settings.GetHandle("glitterAutopsyDecay", "frozenDecayTitle".Translate(),
+                    "frozenDecayDescription".Translate(), 0f);
+            GlitterAutopsyFrozenDecay.CustomDrawer =
+                rect => SettingUIUtil.CustomDrawer_Filter(rect, GlitterAutopsyFrozenDecay, 0, 1.0f);
+            GlitterAutopsyFrozenDecay.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[2];
 
             //Animal
             if (DefDatabase<RecipeDef>.GetNamed(Constants.AutopsyAnimal, false) != null)
@@ -171,7 +192,8 @@ namespace Autopsy
                 AnimalAutopsyMedicalSkillScaling.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[3];
             }
 
-            _tabsHandler.CustomDrawer = rect => SettingUIUtil.CustomDrawer_Tabs(rect, _tabsHandler, _tabNames.ToArray());
+            _tabsHandler.CustomDrawer =
+                rect => SettingUIUtil.CustomDrawer_Tabs(rect, _tabsHandler, _tabNames.ToArray());
         }
     }
 }

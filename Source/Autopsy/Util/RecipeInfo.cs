@@ -10,12 +10,16 @@
 
         public readonly int PartNumber;
 
-        public RecipeInfo(float naturalChance, int corpseValidAge, float bionicChance,int partNumber)
+        public readonly float FrozenDecay;
+
+        public RecipeInfo(float naturalChance, int corpseValidAge, float bionicChance, int partNumber,
+            float frozenDecay)
         {
             NaturalChance = naturalChance;
             CorpseValidAge = corpseValidAge;
             BionicChance = bionicChance;
             PartNumber = partNumber;
+            FrozenDecay = frozenDecay;
         }
     }
 }

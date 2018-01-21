@@ -16,5 +16,7 @@
   <numberPartsDescription>Maximum number of organs and bionics that can be harvested from a single corpse</numberPartsDescription>
   <skillScalingTitle>Medical skill scaling</skillScalingTitle>
   <skillScalingDescription>Dictates how much does pawn medical surgery success chance scales when performing autopsy</skillScalingDescription>
+  <frozenDecayTitle>Decay while frozen</frozenDecayTitle>
+  <frozenDecayDescription>Sets how fast natural organs decay while body is frozen compared to warm</frozenDecayDescription>
 
 </LanguageData>
