@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Autopsy.Util;
 using HugsLib;
 using HugsLib.Settings;
-using RimWorld;
 using Verse;
 
 namespace Autopsy
