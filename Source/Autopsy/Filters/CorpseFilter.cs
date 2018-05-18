@@ -11,15 +11,12 @@ namespace Autopsy.Filters
     public abstract class FilterCorpse : SpecialThingFilterWorker
     {
         private readonly bool harvestable;
-        private readonly bool animalOrHuman;
+        private readonly bool animal;
 
-        /**
-         * true - animal, false - human
-         */
-        protected FilterCorpse(bool harvestable, bool animalOrHuman)
+        protected FilterCorpse(bool harvestable, bool animal)
         {
             this.harvestable = harvestable;
-            this.animalOrHuman = animalOrHuman;
+            this.animal = animal;
         }
 
         public override bool Matches(Thing t)
@@ -44,15 +41,15 @@ namespace Autopsy.Filters
 
             RaceProperties race = corpse.InnerPawn.RaceProps;
 
-            if (animalOrHuman)
-                return race.Animal && CanHarvest(corpse) == harvestable;
+            if (animal)
+                return (race.Animal && !race.Humanlike) && (CanHarvest(corpse) == harvestable);
 
-            return race.Humanlike && CanHarvest(corpse) == harvestable;
+            return (race.Humanlike && !race.Animal) && (CanHarvest(corpse) == harvestable);
         }
 
         private bool CanHarvest(Corpse corpse)
         {
-            if (!animalOrHuman)
+            if (!animal)
             {
                 IEnumerable<BodyPartRecord> parts = corpse.InnerPawn.health.hediffSet.GetNotMissingParts();
                 int maxage = Mathf.Max(Mod.BasicAutopsyCorpseAge.Value, Mod.AdvancedAutopsyCorpseAge.Value,
