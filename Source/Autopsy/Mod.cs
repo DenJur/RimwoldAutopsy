@@ -168,28 +168,25 @@ namespace Autopsy
                 rect => SettingUIUtil.CustomDrawer_Filter(rect, GlitterAutopsyFrozenDecay, 0, 1.0f);
             GlitterAutopsyFrozenDecay.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[2];
 
-            //Animal
-            if (DefDatabase<RecipeDef>.GetNamed(Constants.AutopsyAnimal, false) != null)
-            {
-                _tabNames.Add("autopsyAnimalTab".Translate());
-                AnimalAutopsyBionicMaxChance =
-                    Settings.GetHandle("animalAutopsyBionicChance", "bionicChanceTitle".Translate(),
-                        "bionicChanceDescription".Translate(), 0.6f);
-                AnimalAutopsyBionicMaxChance.CustomDrawer =
-                    rect => SettingUIUtil.CustomDrawer_Filter(rect, AnimalAutopsyBionicMaxChance, 0, 1.0f);
-                AnimalAutopsyBionicMaxChance.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[3];
-                AnimalAutopsyMaxNumberOfOrgans =
-                    Settings.GetHandle("animalAutopsyNumberParts", "numberPartsTitle".Translate(),
-                        "numberPartsDescription".Translate(), 99);
-                AnimalAutopsyMaxNumberOfOrgans.Validator = _positiveInt;
-                AnimalAutopsyMaxNumberOfOrgans.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[3];
-                AnimalAutopsyMedicalSkillScaling =
-                    Settings.GetHandle("animalAutopsySkill", "skillScalingTitle".Translate(),
-                        "skillScalingDescription".Translate(), 0.8f);
-                AnimalAutopsyMedicalSkillScaling.CustomDrawer =
-                    rect => SettingUIUtil.CustomDrawer_Filter(rect, AnimalAutopsyMedicalSkillScaling, 0, 10.0f);
-                AnimalAutopsyMedicalSkillScaling.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[3];
-            }
+
+            _tabNames.Add("autopsyAnimalTab".Translate());
+            AnimalAutopsyBionicMaxChance =
+                Settings.GetHandle("animalAutopsyBionicChance", "bionicChanceTitle".Translate(),
+                    "bionicChanceDescription".Translate(), 0.6f);
+            AnimalAutopsyBionicMaxChance.CustomDrawer =
+                rect => SettingUIUtil.CustomDrawer_Filter(rect, AnimalAutopsyBionicMaxChance, 0, 1.0f);
+            AnimalAutopsyBionicMaxChance.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[3];
+            AnimalAutopsyMaxNumberOfOrgans =
+                Settings.GetHandle("animalAutopsyNumberParts", "numberPartsTitle".Translate(),
+                    "numberPartsDescription".Translate(), 99);
+            AnimalAutopsyMaxNumberOfOrgans.Validator = _positiveInt;
+            AnimalAutopsyMaxNumberOfOrgans.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[3];
+            AnimalAutopsyMedicalSkillScaling =
+                Settings.GetHandle("animalAutopsySkill", "skillScalingTitle".Translate(),
+                    "skillScalingDescription".Translate(), 0.8f);
+            AnimalAutopsyMedicalSkillScaling.CustomDrawer =
+                rect => SettingUIUtil.CustomDrawer_Filter(rect, AnimalAutopsyMedicalSkillScaling, 0, 10.0f);
+            AnimalAutopsyMedicalSkillScaling.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[3];
 
             _tabsHandler.CustomDrawer =
                 rect => SettingUIUtil.CustomDrawer_Tabs(rect, _tabsHandler, _tabNames.ToArray());

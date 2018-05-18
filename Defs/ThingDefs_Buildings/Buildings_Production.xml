@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <Defs>
 
   <ThingDef ParentName="FurnitureBase">
@@ -20,7 +21,7 @@
       <Flammability>1.0</Flammability>
     </statBases>
     <size>(1,2)</size>
-	<designationCategory>Production</designationCategory>
+    <designationCategory>Production</designationCategory>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
@@ -28,22 +29,23 @@
     <costList>
       <Steel>80</Steel>
     </costList>
-	<hasInteractionCell>True</hasInteractionCell>
+    <hasInteractionCell>True</hasInteractionCell>
     <interactionCellOffset>(0,0,-1)</interactionCellOffset>
     <surfaceType>Item</surfaceType>
-	<recipes>
-		<li>AutopsyBasic</li>
-		<li>AutopsyAdvanced</li>
-		<li>AutopsyGlitterworld</li>
-	</recipes>
-	<inspectorTabs>
+    <recipes>
+      <li>AutopsyBasic</li>
+      <li>AutopsyAdvanced</li>
+      <li>AutopsyGlitterworld</li>
+      <li>AutopsyAnimal</li>
+    </recipes>
+    <inspectorTabs>
       <li>ITab_Bills</li>
     </inspectorTabs>
     <building>
       <bed_showSleeperBody>True</bed_showSleeperBody>
       <bed_healPerDay>0</bed_healPerDay>
       <bed_defaultMedical>true</bed_defaultMedical>
-	  <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
     </building>
     <fillPercent>0.4</fillPercent>
     <pathCost>60</pathCost>
@@ -54,7 +56,9 @@
     <passability>PassThroughOnly</passability>
     <drawGUIOverlay>True</drawGUIOverlay>
     <canOverlapZones>false</canOverlapZones>
-    <researchPrerequisites><li>AdvancedAutopsy</li></researchPrerequisites>
+    <researchPrerequisites>
+      <li>AdvancedAutopsy</li>
+    </researchPrerequisites>
   </ThingDef>
-  
+
 </Defs>

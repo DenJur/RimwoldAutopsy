@@ -56,6 +56,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filters\CorpseFilter.cs" />
+    <Compile Include="Patches\AutopsyWorker.cs" />
+    <Compile Include="Util\AutopsyRecipeDefs.cs" />
     <Compile Include="Util\Constants.cs" />
     <Compile Include="Patches\MakeRecipeProductsPatch.cs" />
     <Compile Include="Util\NewMedicaRecipesUtility.cs" />

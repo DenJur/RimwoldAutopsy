@@ -1,11 +1,16 @@
-﻿namespace Autopsy
-{
-    internal class Constants
-    {
-        public const string AutopsyBasic = "AutopsyBasic";
-        public const string AutopsyAdvanced = "AutopsyAdvanced";
-        public const string AutopsyAnimal = "AutopsyAnimal";
-        public const string AutopsyGlitterworld = "AutopsyGlitterworld";
+﻿using Autopsy.Util;
+using Verse;
 
+namespace Autopsy
+{
+    public static class Constants
+    {
+        public static RecipeDef[] HumanRecipeDefs = new[]
+        {
+            AutopsyRecipeDefs.AutopsyBasic,
+            AutopsyRecipeDefs.AutopsyAdvanced,
+            AutopsyRecipeDefs.AutopsyGlitterworld,
+            AutopsyRecipeDefs.AutopsyAnimal
+        };
     }
 }
