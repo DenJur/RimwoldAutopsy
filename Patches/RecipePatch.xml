@@ -11,5 +11,15 @@
       </specialFiltersToDisallow>
     </value>
   </Operation>
+  
+  <Operation Class="PatchOperationAdd">
+    <xpath>*/RecipeDef[defName = "CremateCorpse"]/defaultIngredientFilter</xpath>
+    <value>
+      <specialFiltersToDisallow>
+        <li>PossibleToHarvest</li>
+        <li>PossibleToHarvestAnimal</li>
+      </specialFiltersToDisallow>
+    </value>
+  </Operation>
 
 </Patch>
