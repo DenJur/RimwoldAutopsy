@@ -2,7 +2,7 @@
 
 <Defs>
 
-  <ThingDef ParentName="FurnitureBase">
+  <ThingDef ParentName="BenchBase">
     <defName>TableAutopsy</defName>
     <label>autopsy table</label>
     <description>A table specially designed for deceased people. Allows for surgical removal of organs.</description>
