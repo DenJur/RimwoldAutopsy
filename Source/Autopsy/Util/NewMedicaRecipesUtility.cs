@@ -60,9 +60,9 @@ namespace Autopsy
                 {
                     if (Rand.Chance(Math.Min(skillChance, recipeInfo.NaturalChance)))
                         result.Add(ThingMaker.MakeThing(part.def.spawnThingOnRemoved));
-                    damagedParts.Add(part);
                     return true;
                 }
+                damagedParts.Add(part);
             }
 
             if (corpse.InnerPawn.health.hediffSet.hediffs.Any(x =>

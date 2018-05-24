@@ -49,29 +49,41 @@ namespace Autopsy.Filters
 
         private bool CanHarvest(Corpse corpse)
         {
-            if (!animal)
-            {
-                IEnumerable<BodyPartRecord> parts = corpse.InnerPawn.health.hediffSet.GetNotMissingParts();
-                int maxage = Mathf.Max(Mod.BasicAutopsyCorpseAge.Value, Mod.AdvancedAutopsyCorpseAge.Value,
-                    Mod.GlitterAutopsyCorpseAge.Value);
-                float decay = Mathf.Min(Mod.BasicAutopsyFrozenDecay.Value, Mod.AdvancedAutopsyFrozenDecay.Value,
-                    Mod.GlitterAutopsyFrozenDecay.Value);
-                CompRottable rot = corpse.TryGetComp<CompRottable>();
+            int maxage = Mathf.Max(Mod.BasicAutopsyCorpseAge.Value, Mod.AdvancedAutopsyCorpseAge.Value,
+                Mod.GlitterAutopsyCorpseAge.Value);
+            float decay = Mathf.Min(Mod.BasicAutopsyFrozenDecay.Value, Mod.AdvancedAutopsyFrozenDecay.Value,
+                Mod.GlitterAutopsyFrozenDecay.Value);
+            CompRottable rot = corpse.TryGetComp<CompRottable>();
+            bool notRotten = rot == null
+                ? corpse.Age <= maxage * 2500
+                : rot.RotProgress + ((corpse.Age - rot.RotProgress) * decay) <=
+                  maxage * 2500;
 
-                if (rot == null
-                    ? corpse.Age <= maxage * 2500
-                    : rot.RotProgress + ((corpse.Age - rot.RotProgress) * decay) <=
-                      maxage * 2500)
-                    if (parts.Any(part => NewMedicaRecipesUtility.IsCleanAndDroppable(corpse.InnerPawn, part)))
-                        return true;
+            Pawn pawn = corpse.InnerPawn;
+            BodyPartRecord core = pawn.RaceProps.body.corePart;
+            List<BodyPartRecord> queue = new List<BodyPartRecord> {core};
+            HediffSet hediffSet = pawn.health.hediffSet;
+            while (queue.Count > 0)
+            {
+                BodyPartRecord part = queue.First();
+                queue.Remove(part);
+                if (core != part && CanGetPart(pawn, part, notRotten))
+                    return true;
+                queue.AddRange(part.parts.Where(x => !hediffSet.PartIsMissing(x)));
             }
 
-            if (corpse.InnerPawn.health.hediffSet.hediffs.Any(x =>
-                x.def.spawnThingOnRemoved != null &&
-                (x is Hediff_Implant || x is Hediff_AddedPart)))
-                return true;
-
             return false;
+        }
+
+        public bool CanGetPart(Pawn pawn, BodyPartRecord part, bool notRotten)
+        {
+            if (!animal && notRotten)
+                if (NewMedicaRecipesUtility.IsCleanAndDroppable(pawn, part))
+                    return true;
+
+            return pawn.health.hediffSet.hediffs.Any(x =>
+                x.Part == part && x.def.spawnThingOnRemoved != null &&
+                (x is Hediff_Implant || x is Hediff_AddedPart));
         }
     }
 
