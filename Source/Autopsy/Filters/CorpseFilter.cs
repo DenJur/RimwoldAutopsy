@@ -67,7 +67,7 @@ namespace Autopsy.Filters
             {
                 BodyPartRecord part = queue.First();
                 queue.Remove(part);
-                if (core != part && CanGetPart(pawn, part, notRotten))
+                if (CanGetPart(pawn, part, notRotten) && core != part)
                     return true;
                 queue.AddRange(part.parts.Where(x => !hediffSet.PartIsMissing(x)));
             }

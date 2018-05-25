@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Harmony;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -38,7 +39,7 @@ namespace Autopsy
                 var random = new Random();
                 return results.OrderBy(i => random.Next()).Take(recipeInfo.PartNumber);
             }
-
+           
             foreach (var part in damagedParts)
             {
                 DamageHarvested(corpse.InnerPawn, part);
@@ -52,6 +53,7 @@ namespace Autopsy
         {
             if (IsCleanAndDroppable(corpse.InnerPawn, part))
             {
+                damagedParts.Add(part);
                 CompRottable rot = corpse.TryGetComp<CompRottable>();
                 if ((rot == null
                     ? corpse.Age <= recipeInfo.CorpseValidAge
@@ -62,7 +64,6 @@ namespace Autopsy
                         result.Add(ThingMaker.MakeThing(part.def.spawnThingOnRemoved));
                     return true;
                 }
-                damagedParts.Add(part);
             }
 
             if (corpse.InnerPawn.health.hediffSet.hediffs.Any(x =>
@@ -106,6 +107,7 @@ namespace Autopsy
                     return;
 
                 BodyPartRecord bodyPartRecord;
+
                 if (!bodyPartRecords.TryRandomElementByWeight(x => x.coverageAbs, out bodyPartRecord))
                 {
                     return;
@@ -133,11 +135,10 @@ namespace Autopsy
 
             HediffDef hediffDefFromDamage = HealthUtility.GetHediffDefFromDamage(def, p, part);
 
-            Hediff_Injury injury = (Hediff_Injury) HediffMaker.MakeHediff(hediffDefFromDamage, p, null);
-            injury.Part = part;
+            Hediff_Injury injury = (Hediff_Injury) HediffMaker.MakeHediff(hediffDefFromDamage, p, part);
             injury.Severity = damage;
 
-            p.health.AddHediff(injury, null, new DamageInfo(def, damage, -1f, null, part));
+            p.health.AddHediff(injury, part, new DamageInfo(def, damage, -1f, null, part));
             GenLeaving.DropFilthDueToDamage(p, damage);
         }
     }
