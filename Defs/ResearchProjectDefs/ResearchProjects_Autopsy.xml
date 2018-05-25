@@ -6,7 +6,7 @@
   <ResearchProjectDef>
     <defName>BasicAutopsy</defName>
     <label>Basic Autopsy</label>
-    <description>The primal butchering for organs, often used in rituals. However quite barbaric. You can perform basic autopsy through the butchering table.</description>
+    <description>The primal butchering for organs, often used in rituals. However quite barbaric. This research unlocks the autopsy table.</description>
     <baseCost>500</baseCost>
     <tab>Autopsy</tab>
     <techLevel>Neolithic</techLevel>
@@ -17,7 +17,7 @@
   <ResearchProjectDef>
     <defName>AdvancedAutopsy</defName>
     <label>Advanced Autopsy</label>
-    <description>Advanced procedures allows for a more humane and precise organ extraction. This research unlocks the autopsy table.</description>
+    <description>Advanced procedures allows for a more humane and precise organ extraction.</description>
     <baseCost>2000</baseCost>
     <tab>Autopsy</tab>
     <techLevel>Industrial</techLevel>
@@ -37,7 +37,6 @@
     <tab>Autopsy</tab>
     <techLevel>Spacer</techLevel>
     <prerequisites>
-      <li>BasicAutopsy</li>
       <li>AdvancedAutopsy</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
