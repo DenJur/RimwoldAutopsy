@@ -31,4 +31,11 @@
       - Custom debuff for basic autopsy.
     </content>
   </HugsLib.UpdateFeatureDef>
+  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+    <defName>Autopsy_3_0_3</defName>
+    <assemblyVersion>3.0.3</assemblyVersion>
+    <content>
+      Due to a bug Basic Autopsy recipe was removed from the butchering table. Autopsy table is now unlocked after reaserching Basic Autopsy. &lt;color=#890000ff&gt;&lt;b&gt;If you have an ongoing game you will recieve one time error and you should manualy remove all Basic Autopsy bills from your butchering tables.&lt;/b&gt;&lt;/color&gt;
+    </content>
+  </HugsLib.UpdateFeatureDef>
 </Defs>
