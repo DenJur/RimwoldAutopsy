@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Autopsy.Util;
 using HugsLib;
 using HugsLib.Settings;
@@ -9,8 +8,6 @@ namespace Autopsy
 {
     public class Mod : ModBase
     {
-        public override string ModIdentifier => "Autopsy";
-
         internal static SettingHandle<int> BasicAutopsyMaxNumberOfOrgans;
         internal static SettingHandle<float> BasicAutopsyOrganMaxChance;
         internal static SettingHandle<int> BasicAutopsyCorpseAge;
@@ -41,24 +38,23 @@ namespace Autopsy
         private readonly SettingHandle.ValueIsValid _positiveInt = value =>
         {
             int i;
-            if (int.TryParse(value, out i))
-            {
-                return i >= 0;
-            }
+            if (int.TryParse(value, out i)) return i >= 0;
 
             return false;
         };
 
-        private List<string> _tabNames = new List<string>
+        private readonly List<string> _tabNames = new List<string>
         {
             "autopsyBasicTab".Translate(),
             "autopsyAdvancedTab".Translate(),
             "autopsyGlitterTab".Translate()
         };
 
+        public override string ModIdentifier => "Autopsy";
+
         public override void DefsLoaded()
         {
-            _tabsHandler = Settings.GetHandle<String>("tabs", null, null);
+            _tabsHandler = Settings.GetHandle<string>("tabs", null, null);
 
             //Basic
             BasicAutopsyOrganMaxChance =

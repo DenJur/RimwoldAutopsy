@@ -5,7 +5,7 @@ namespace Autopsy
 {
     public static class Constants
     {
-        public static RecipeDef[] HumanRecipeDefs = new[]
+        public static RecipeDef[] HumanRecipeDefs =
         {
             AutopsyRecipeDefs.AutopsyBasic,
             AutopsyRecipeDefs.AutopsyAdvanced,

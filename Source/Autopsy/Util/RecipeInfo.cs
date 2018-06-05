@@ -6,11 +6,11 @@
 
         public readonly int CorpseValidAge;
 
+        public readonly float FrozenDecay;
+
         public readonly float NaturalChance;
 
         public readonly int PartNumber;
-
-        public readonly float FrozenDecay;
 
         public RecipeInfo(float naturalChance, int corpseValidAge, float bionicChance, int partNumber,
             float frozenDecay)

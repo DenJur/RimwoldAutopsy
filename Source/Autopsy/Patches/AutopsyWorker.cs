@@ -1,10 +1,9 @@
 ﻿using System.Linq;
-using Autopsy.Util;
 using Verse;
 
 namespace Autopsy.Patches
 {
-    class AutopsyWorker : RecipeWorker
+    internal class AutopsyWorker : RecipeWorker
     {
         public override void ConsumeIngredient(Thing ingredient, RecipeDef recipeDef, Map map)
         {

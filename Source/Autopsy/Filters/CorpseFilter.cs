@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -10,8 +8,8 @@ namespace Autopsy.Filters
 {
     public abstract class FilterCorpse : SpecialThingFilterWorker
     {
-        private readonly bool harvestable;
         private readonly bool animal;
+        private readonly bool harvestable;
 
         protected FilterCorpse(bool harvestable, bool animal)
         {
@@ -39,33 +37,33 @@ namespace Autopsy.Filters
             if (corpse == null)
                 return false;
 
-            RaceProperties race = corpse.InnerPawn.RaceProps;
+            var race = corpse.InnerPawn.RaceProps;
 
             if (animal)
-                return (race.Animal && !race.Humanlike) && (CanHarvest(corpse) == harvestable);
+                return race.Animal && !race.Humanlike && CanHarvest(corpse) == harvestable;
 
-            return (race.Humanlike && !race.Animal) && (CanHarvest(corpse) == harvestable);
+            return race.Humanlike && !race.Animal && CanHarvest(corpse) == harvestable;
         }
 
         private bool CanHarvest(Corpse corpse)
         {
-            int maxage = Mathf.Max(Mod.BasicAutopsyCorpseAge.Value, Mod.AdvancedAutopsyCorpseAge.Value,
+            var maxage = Mathf.Max(Mod.BasicAutopsyCorpseAge.Value, Mod.AdvancedAutopsyCorpseAge.Value,
                 Mod.GlitterAutopsyCorpseAge.Value);
-            float decay = Mathf.Min(Mod.BasicAutopsyFrozenDecay.Value, Mod.AdvancedAutopsyFrozenDecay.Value,
+            var decay = Mathf.Min(Mod.BasicAutopsyFrozenDecay.Value, Mod.AdvancedAutopsyFrozenDecay.Value,
                 Mod.GlitterAutopsyFrozenDecay.Value);
-            CompRottable rot = corpse.TryGetComp<CompRottable>();
-            bool notRotten = rot == null
+            var rot = corpse.TryGetComp<CompRottable>();
+            var notRotten = rot == null
                 ? corpse.Age <= maxage * 2500
-                : rot.RotProgress + ((corpse.Age - rot.RotProgress) * decay) <=
+                : rot.RotProgress + (corpse.Age - rot.RotProgress) * decay <=
                   maxage * 2500;
 
-            Pawn pawn = corpse.InnerPawn;
-            BodyPartRecord core = pawn.RaceProps.body.corePart;
-            List<BodyPartRecord> queue = new List<BodyPartRecord> {core};
-            HediffSet hediffSet = pawn.health.hediffSet;
+            var pawn = corpse.InnerPawn;
+            var core = pawn.RaceProps.body.corePart;
+            var queue = new List<BodyPartRecord> {core};
+            var hediffSet = pawn.health.hediffSet;
             while (queue.Count > 0)
             {
-                BodyPartRecord part = queue.First();
+                var part = queue.First();
                 queue.Remove(part);
                 if (CanGetPart(pawn, part, notRotten) && core != part)
                     return true;
@@ -82,7 +80,7 @@ namespace Autopsy.Filters
                     return true;
 
             return pawn.health.hediffSet.hediffs.Any(x =>
-                x.Part == part && x.def.spawnThingOnRemoved != null &&
+                part.Equals(x.Part) && x.def.spawnThingOnRemoved != null &&
                 (x is Hediff_Implant || x is Hediff_AddedPart));
         }
     }
