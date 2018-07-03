@@ -37,7 +37,7 @@ namespace Autopsy.Filters
             if (corpse == null)
                 return false;
 
-            var race = corpse.InnerPawn.RaceProps;
+            RaceProperties race = corpse.InnerPawn.RaceProps;
 
             if (animal)
                 return race.Animal && !race.Humanlike && CanHarvest(corpse) == harvestable;
@@ -47,23 +47,23 @@ namespace Autopsy.Filters
 
         private bool CanHarvest(Corpse corpse)
         {
-            var maxage = Mathf.Max(Mod.BasicAutopsyCorpseAge.Value, Mod.AdvancedAutopsyCorpseAge.Value,
+            int maxage = Mathf.Max(Mod.BasicAutopsyCorpseAge.Value, Mod.AdvancedAutopsyCorpseAge.Value,
                 Mod.GlitterAutopsyCorpseAge.Value);
-            var decay = Mathf.Min(Mod.BasicAutopsyFrozenDecay.Value, Mod.AdvancedAutopsyFrozenDecay.Value,
+            float decay = Mathf.Min(Mod.BasicAutopsyFrozenDecay.Value, Mod.AdvancedAutopsyFrozenDecay.Value,
                 Mod.GlitterAutopsyFrozenDecay.Value);
-            var rot = corpse.TryGetComp<CompRottable>();
-            var notRotten = rot == null
+            CompRottable rot = corpse.TryGetComp<CompRottable>();
+            bool notRotten = rot == null
                 ? corpse.Age <= maxage * 2500
                 : rot.RotProgress + (corpse.Age - rot.RotProgress) * decay <=
                   maxage * 2500;
 
-            var pawn = corpse.InnerPawn;
-            var core = pawn.RaceProps.body.corePart;
-            var queue = new List<BodyPartRecord> {core};
-            var hediffSet = pawn.health.hediffSet;
+            Pawn pawn = corpse.InnerPawn;
+            BodyPartRecord core = pawn.RaceProps.body.corePart;
+            List<BodyPartRecord> queue = new List<BodyPartRecord> {core};
+            HediffSet hediffSet = pawn.health.hediffSet;
             while (queue.Count > 0)
             {
-                var part = queue.First();
+                BodyPartRecord part = queue.First();
                 queue.Remove(part);
                 if (CanGetPart(pawn, part, notRotten) && core != part)
                     return true;

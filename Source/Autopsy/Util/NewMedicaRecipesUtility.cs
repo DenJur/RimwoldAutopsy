@@ -18,14 +18,14 @@ namespace Autopsy
 
         public static IEnumerable<Thing> TraverseBody(RecipeInfo recipeInfo, Corpse corpse, float skillChance)
         {
-            var core = corpse.InnerPawn.RaceProps.body.corePart;
-            var queue = new List<BodyPartRecord> {core};
-            var hediffSet = corpse.InnerPawn.health.hediffSet;
-            var results = new List<Thing>();
-            var damagedParts = new List<BodyPartRecord>();
+            BodyPartRecord core = corpse.InnerPawn.RaceProps.body.corePart;
+            List<BodyPartRecord> queue = new List<BodyPartRecord> {core};
+            HediffSet hediffSet = corpse.InnerPawn.health.hediffSet;
+            List<Thing> results = new List<Thing>();
+            List<BodyPartRecord> damagedParts = new List<BodyPartRecord>();
             while (queue.Count > 0)
             {
-                var part = queue.First();
+                BodyPartRecord part = queue.First();
                 queue.Remove(part);
                 //Drop parts and bionics that are higher on the body tree.
                 if (TryGetParts(corpse, recipeInfo, part, skillChance, ref results, ref damagedParts) && core != part)
@@ -35,11 +35,11 @@ namespace Autopsy
 
             if (results.Count > recipeInfo.PartNumber)
             {
-                var random = new Random();
+                Random random = new Random();
                 return results.OrderBy(i => random.Next()).Take(recipeInfo.PartNumber);
             }
 
-            foreach (var part in damagedParts) DamageHarvested(corpse.InnerPawn, part);
+            foreach (BodyPartRecord part in damagedParts) DamageHarvested(corpse.InnerPawn, part);
 
             return results;
         }
@@ -50,7 +50,7 @@ namespace Autopsy
             if (IsCleanAndDroppable(corpse.InnerPawn, part))
             {
                 damagedParts.Add(part);
-                var rot = corpse.TryGetComp<CompRottable>();
+                CompRottable rot = corpse.TryGetComp<CompRottable>();
                 if (rot == null
                     ? corpse.Age <= recipeInfo.CorpseValidAge
                     : rot.RotProgress + (corpse.Age - rot.RotProgress) * recipeInfo.FrozenDecay <=
@@ -80,18 +80,18 @@ namespace Autopsy
         public static void DamageHarvested(Pawn p, BodyPartRecord part)
         {
             if (part == null) return;
-            var targets = p.health.hediffSet.GetNotMissingParts();
+            IEnumerable<BodyPartRecord> targets = p.health.hediffSet.GetNotMissingParts();
 
             targets = targets.Where(pa => part.parent == pa);
 
-            var bodyPartRecords = targets.ToList();
+            List<BodyPartRecord> bodyPartRecords = targets.ToList();
 
-            var partHealth = p.health.hediffSet.GetPartHealth(part);
+            float partHealth = p.health.hediffSet.GetPartHealth(part);
             if (partHealth >= float.Epsilon) DamagePart(p, Mathf.CeilToInt(partHealth), part);
 
-            var start = DateTime.Now;
+            DateTime start = DateTime.Now;
 
-            var totalSharedDamage = Rand.Range(5, 10);
+            int totalSharedDamage = Rand.Range(5, 10);
 
             while (totalSharedDamage > 0 && bodyPartRecords.Count != 0)
             {
@@ -110,7 +110,7 @@ namespace Autopsy
                     continue;
                 }
 
-                var num = Mathf.Max(3, GenMath.RoundRandom(partHealth * Rand.Range(0.5f, 1f)));
+                int num = Mathf.Max(3, GenMath.RoundRandom(partHealth * Rand.Range(0.5f, 1f)));
 
                 DamagePart(p, num, bodyPartRecord);
 
@@ -120,11 +120,11 @@ namespace Autopsy
 
         public static void DamagePart(Pawn p, int damage, BodyPartRecord part)
         {
-            var def = Rand.Element(DamageDefOf.Cut, DamageDefOf.Stab);
+            DamageDef def = Rand.Element(DamageDefOf.Cut, DamageDefOf.Stab);
 
-            var hediffDefFromDamage = HealthUtility.GetHediffDefFromDamage(def, p, part);
+            HediffDef hediffDefFromDamage = HealthUtility.GetHediffDefFromDamage(def, p, part);
 
-            var injury = (Hediff_Injury) HediffMaker.MakeHediff(hediffDefFromDamage, p, part);
+            Hediff_Injury injury = (Hediff_Injury) HediffMaker.MakeHediff(hediffDefFromDamage, p, part);
             injury.Severity = damage;
 
             p.health.AddHediff(injury, part, new DamageInfo(def, damage, -1f, null, part));

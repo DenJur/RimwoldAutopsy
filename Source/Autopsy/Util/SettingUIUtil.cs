@@ -14,22 +14,22 @@ namespace Autopsy.Util
 
         public static bool CustomDrawer_Tabs(Rect rect, SettingHandle<string> selected, string[] defaultValues)
         {
-            var labelWidth = 140;
-            var offset = -297;
-            var change = false;
+            int labelWidth = 140;
+            int offset = -297;
+            bool change = false;
 
-            foreach (var tab in defaultValues)
+            foreach (string tab in defaultValues)
             {
-                var buttonRect = new Rect(rect)
+                Rect buttonRect = new Rect(rect)
                 {
                     width = labelWidth
                 };
                 buttonRect.position = new Vector2(buttonRect.position.x + offset, buttonRect.position.y);
-                var activeColor = GUI.color;
-                var isSelected = tab == selected.Value;
+                Color activeColor = GUI.color;
+                bool isSelected = tab == selected.Value;
                 if (isSelected)
                     GUI.color = SelectedOptionColor;
-                var clicked = Widgets.ButtonText(buttonRect, tab);
+                bool clicked = Widgets.ButtonText(buttonRect, tab);
                 if (isSelected)
                     GUI.color = activeColor;
 
@@ -47,12 +47,12 @@ namespace Autopsy.Util
 
         public static bool CustomDrawer_Filter(Rect rect, SettingHandle<float> slider, float defMin, float defMax)
         {
-            var labelWidth = 50;
+            int labelWidth = 50;
 
-            var sliderPortion = new Rect(rect);
+            Rect sliderPortion = new Rect(rect);
             sliderPortion.width = sliderPortion.width - labelWidth;
 
-            var labelPortion = new Rect(rect)
+            Rect labelPortion = new Rect(rect)
             {
                 width = labelWidth,
                 position = new Vector2(sliderPortion.position.x + sliderPortion.width + 5f,
@@ -63,8 +63,8 @@ namespace Autopsy.Util
 
             Widgets.Label(labelPortion, Mathf.Round(slider.Value * 100f).ToString("F0") + "%");
 
-            var val = Widgets.HorizontalSlider(sliderPortion, slider.Value, defMin, defMax, true);
-            var change = Math.Abs(slider.Value - val) > float.Epsilon;
+            float val = Widgets.HorizontalSlider(sliderPortion, slider.Value, defMin, defMax, true);
+            bool change = Math.Abs(slider.Value - val) > float.Epsilon;
 
             slider.Value = val;
             return change;

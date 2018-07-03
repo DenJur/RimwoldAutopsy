@@ -17,7 +17,7 @@ namespace Autopsy
             if (Constants.HumanRecipeDefs.Contains(recipeDef))
             {
                 RecipeInfo recipeSettings = null;
-                var skillChance = worker.GetStatValue(StatDefOf.MedicalSurgerySuccessChance);
+                float skillChance = worker.GetStatValue(StatDefOf.MedicalSurgerySuccessChance);
                 if (recipeDef.Equals(AutopsyRecipeDefs.AutopsyBasic))
                 {
                     recipeSettings = new RecipeInfo(
@@ -60,15 +60,15 @@ namespace Autopsy
                 }
 
                 if (recipeSettings == null) return;
-                var result = __result as List<Thing> ?? __result.ToList();
-                foreach (var corpse in ingredients.OfType<Corpse>())
+                List<Thing> result = __result as List<Thing> ?? __result.ToList();
+                foreach (Corpse corpse in ingredients.OfType<Corpse>())
                     result.AddRange(
                         NewMedicaRecipesUtility.TraverseBody(recipeSettings, corpse, skillChance));
 
                 if (recipeDef.Equals(AutopsyRecipeDefs.AutopsyBasic))
                 {
                     worker.needs.mood.thoughts.memories.TryGainMemory(AutopsyRecipeDefs.HarvestedHumanlikeCorpse, null);
-                    foreach (var pawn in worker.Map.mapPawns.SpawnedPawnsInFaction(worker.Faction))
+                    foreach (Pawn pawn in worker.Map.mapPawns.SpawnedPawnsInFaction(worker.Faction))
                         if (pawn != worker)
                             pawn.needs?.mood?.thoughts?.memories.TryGainMemory(
                                 AutopsyRecipeDefs.KnowHarvestedHumanlikeCorpse, null);
