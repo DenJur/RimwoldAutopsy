@@ -27,7 +27,7 @@ namespace Autopsy
             {
                 var part = queue.First();
                 queue.Remove(part);
-                //Drop parts and bionics that are higher onthe body tree.
+                //Drop parts and bionics that are higher on the body tree.
                 if (TryGetParts(corpse, recipeInfo, part, skillChance, ref results, ref damagedParts) && core != part)
                     continue;
                 queue.AddRange(part.parts.Where(x => !hediffSet.PartIsMissing(x)));

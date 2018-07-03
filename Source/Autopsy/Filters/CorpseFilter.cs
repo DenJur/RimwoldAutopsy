@@ -6,12 +6,12 @@ using Verse;
 
 namespace Autopsy.Filters
 {
-    public abstract class FilterCorpse : SpecialThingFilterWorker
+    public abstract class CorpseFilter : SpecialThingFilterWorker
     {
         private readonly bool animal;
         private readonly bool harvestable;
 
-        protected FilterCorpse(bool harvestable, bool animal)
+        protected CorpseFilter(bool harvestable, bool animal)
         {
             this.harvestable = harvestable;
             this.animal = animal;
@@ -85,28 +85,28 @@ namespace Autopsy.Filters
         }
     }
 
-    public class PossibleToHarvest : FilterCorpse
+    public class PossibleToHarvest : CorpseFilter
     {
         public PossibleToHarvest() : base(true, false)
         {
         }
     }
 
-    public class PossibleToHarvestAnimal : FilterCorpse
+    public class PossibleToHarvestAnimal : CorpseFilter
     {
         public PossibleToHarvestAnimal() : base(true, true)
         {
         }
     }
 
-    public class ImpossibleToHarvest : FilterCorpse
+    public class ImpossibleToHarvest : CorpseFilter
     {
         public ImpossibleToHarvest() : base(false, false)
         {
         }
     }
 
-    public class ImpossibleToHarvestAnimal : FilterCorpse
+    public class ImpossibleToHarvestAnimal : CorpseFilter
     {
         public ImpossibleToHarvestAnimal() : base(false, true)
         {

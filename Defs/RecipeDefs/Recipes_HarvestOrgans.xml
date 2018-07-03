@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <Defs>
 
   <RecipeDef>
@@ -46,7 +45,11 @@
       <specialFiltersToAllow>
         <li>AllowCorpsesColonist</li>
         <li>AllowCorpsesStranger</li>
+		<li>DoesntHaveBionics</li>
       </specialFiltersToAllow>
+      <specialFiltersToDisallow>
+        <li>HasBionics</li>
+      </specialFiltersToDisallow>
     </defaultIngredientFilter>
     <researchPrerequisite>BasicAutopsy</researchPrerequisite>
   </RecipeDef>
@@ -96,6 +99,8 @@
       <specialFiltersToAllow>
         <li>AllowCorpsesColonist</li>
         <li>AllowCorpsesStranger</li>
+		<li>DoesntHaveBionics</li>
+        <li>HasBionics</li>
       </specialFiltersToAllow>
     </defaultIngredientFilter>
     <skillRequirements>
@@ -158,6 +163,8 @@
       <specialFiltersToAllow>
         <li>AllowCorpsesColonist</li>
         <li>AllowCorpsesStranger</li>
+		<li>DoesntHaveBionics</li>
+        <li>HasBionics</li>
       </specialFiltersToAllow>
     </defaultIngredientFilter>
     <skillRequirements>
