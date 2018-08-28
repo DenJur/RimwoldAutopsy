@@ -63,7 +63,7 @@ namespace Autopsy
                 List<Thing> result = __result as List<Thing> ?? __result.ToList();
                 foreach (Corpse corpse in ingredients.OfType<Corpse>())
                     result.AddRange(
-                        NewMedicaRecipesUtility.TraverseBody(recipeSettings, corpse, skillChance));
+                        NewMedicalRecipesUtility.TraverseBody(recipeSettings, corpse, skillChance));
 
                 if (recipeDef.Equals(AutopsyRecipeDefs.AutopsyBasic))
                 {

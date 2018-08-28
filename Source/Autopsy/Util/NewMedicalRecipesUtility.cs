@@ -8,12 +8,12 @@ using Random = System.Random;
 
 namespace Autopsy
 {
-    public static class NewMedicaRecipesUtility
+    public static class NewMedicalRecipesUtility
     {
         public static bool IsCleanAndDroppable(Pawn pawn, BodyPartRecord part)
         {
             return !pawn.RaceProps.Animal && !pawn.RaceProps.IsMechanoid && part.def.spawnThingOnRemoved != null &&
-                   !pawn.health.hediffSet.hediffs.Any(x => x.Part == part && !x.IsOld());
+                   !pawn.health.hediffSet.hediffs.Any(x => x.Part == part);
         }
 
         public static IEnumerable<Thing> TraverseBody(RecipeInfo recipeInfo, Corpse corpse, float skillChance)
@@ -98,9 +98,8 @@ namespace Autopsy
                 if ((DateTime.Now - start).TotalSeconds > 1)
                     return;
 
-                BodyPartRecord bodyPartRecord;
-
-                if (!bodyPartRecords.TryRandomElementByWeight(x => x.coverageAbs, out bodyPartRecord)) return;
+                if (!bodyPartRecords.TryRandomElementByWeight(x => x.coverageAbs, out BodyPartRecord bodyPartRecord)
+                ) return;
 
                 partHealth = p.health.hediffSet.GetPartHealth(bodyPartRecord);
 
@@ -127,7 +126,7 @@ namespace Autopsy
             Hediff_Injury injury = (Hediff_Injury) HediffMaker.MakeHediff(hediffDefFromDamage, p, part);
             injury.Severity = damage;
 
-            p.health.AddHediff(injury, part, new DamageInfo(def, damage, -1f, null, part));
+            p.health.AddHediff(injury, part, new DamageInfo(def, damage, 999f, -1f, null, part));
             GenLeaving.DropFilthDueToDamage(p, damage);
         }
     }

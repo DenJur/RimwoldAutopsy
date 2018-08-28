@@ -101,7 +101,7 @@ namespace Autopsy
             AdvancedAutopsyOrganMaxChance.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[1];
             AdvancedAutopsyBionicMaxChance =
                 Settings.GetHandle("advancedAutopsyBionicChance", "bionicChanceTitle".Translate(),
-                    "bionicChanceDescription".Translate(), 0.6f);
+                    "bionicChanceDescription".Translate(), 0.4f);
             AdvancedAutopsyBionicMaxChance.CustomDrawer =
                 rect => SettingUIUtil.CustomDrawer_Filter(rect, AdvancedAutopsyBionicMaxChance, 0, 1.0f);
             AdvancedAutopsyBionicMaxChance.VisibilityPredicate = () => _tabsHandler.Value == _tabNames[1];

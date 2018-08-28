@@ -62,7 +62,7 @@
     <Compile Include="Util\AutopsyRecipeDefs.cs" />
     <Compile Include="Util\Constants.cs" />
     <Compile Include="Patches\MakeRecipeProductsPatch.cs" />
-    <Compile Include="Util\NewMedicaRecipesUtility.cs" />
+    <Compile Include="Util\NewMedicalRecipesUtility.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\RecipeInfo.cs" />

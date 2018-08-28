@@ -76,7 +76,7 @@ namespace Autopsy.Filters
         public bool CanGetPart(Pawn pawn, BodyPartRecord part, bool notRotten)
         {
             if (!animal && notRotten)
-                if (NewMedicaRecipesUtility.IsCleanAndDroppable(pawn, part))
+                if (NewMedicalRecipesUtility.IsCleanAndDroppable(pawn, part))
                     return true;
 
             return pawn.health.hediffSet.hediffs.Any(x =>

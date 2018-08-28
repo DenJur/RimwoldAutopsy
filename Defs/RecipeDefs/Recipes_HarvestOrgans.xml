@@ -21,18 +21,27 @@
         </filter>
         <count>1</count>
       </li>
+	  <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
     </ingredients>
     <fixedIngredientFilter>
       <categories>
         <li>Corpses</li>
+		<li>Medicine</li>
       </categories>
       <specialFiltersToAllow>
         <li>PossibleToHarvest</li>
       </specialFiltersToAllow>
-      <exceptedCategories>
+      <disallowedCategories>
         <li>CorpsesMechanoid</li>
         <li>CorpsesAnimal</li>
-      </exceptedCategories>
+      </disallowedCategories>
       <specialFiltersToDisallow>
         <li>AllowRotten</li>
         <li>ImpossibleToHarvest</li>
@@ -40,7 +49,8 @@
     </fixedIngredientFilter>
     <defaultIngredientFilter>
       <thingDefs>
-        <li>Human_Corpse</li>
+        <li>Corpse_Human</li>
+		<li>MedicineHerbal</li>
       </thingDefs>
       <specialFiltersToAllow>
         <li>AllowCorpsesColonist</li>
@@ -50,6 +60,10 @@
       <specialFiltersToDisallow>
         <li>HasBionics</li>
       </specialFiltersToDisallow>
+	  <disallowedThingDefs>
+	    <li>MedicineUltratech</li>
+		<li>MedicineIndustrial</li>
+      </disallowedThingDefs>
     </defaultIngredientFilter>
     <researchPrerequisite>BasicAutopsy</researchPrerequisite>
   </RecipeDef>
@@ -75,26 +89,39 @@
         </filter>
         <count>1</count>
       </li>
+	  <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
     </ingredients>
     <fixedIngredientFilter>
       <categories>
         <li>Corpses</li>
+        <li>Medicine</li>
       </categories>
       <specialFiltersToAllow>
         <li>PossibleToHarvest</li>
       </specialFiltersToAllow>
-      <exceptedCategories>
+      <disallowedCategories>
         <li>CorpsesMechanoid</li>
         <li>CorpsesAnimal</li>
-      </exceptedCategories>
+      </disallowedCategories>
       <specialFiltersToDisallow>
         <li>AllowRotten</li>
         <li>ImpossibleToHarvest</li>
       </specialFiltersToDisallow>
+	  <disallowedThingDefs>
+	    <li>MedicineHerbal</li>
+      </disallowedThingDefs>
     </fixedIngredientFilter>
     <defaultIngredientFilter>
       <thingDefs>
-        <li>Human_Corpse</li>
+        <li>Corpse_Human</li>
+		<li>MedicineIndustrial</li>
       </thingDefs>
       <specialFiltersToAllow>
         <li>AllowCorpsesColonist</li>
@@ -102,6 +129,9 @@
 		<li>DoesntHaveBionics</li>
         <li>HasBionics</li>
       </specialFiltersToAllow>
+	  <disallowedThingDefs>
+	    <li>MedicineUltratech</li>
+      </disallowedThingDefs>
     </defaultIngredientFilter>
     <skillRequirements>
       <Medicine>8</Medicine>
@@ -132,9 +162,9 @@
       </li>
       <li>
         <filter>
-          <thingDefs>
+          <categories>
             <li>Medicine</li>
-          </thingDefs>
+          </categories>
         </filter>
         <count>1</count>
       </li>
@@ -147,18 +177,23 @@
       <specialFiltersToAllow>
         <li>PossibleToHarvest</li>
       </specialFiltersToAllow>
-      <exceptedCategories>
+      <disallowedCategories>
         <li>CorpsesMechanoid</li>
         <li>CorpsesAnimal</li>
-      </exceptedCategories>
+      </disallowedCategories>
       <specialFiltersToDisallow>
         <li>AllowRotten</li>
         <li>ImpossibleToHarvest</li>
       </specialFiltersToDisallow>
+	  <disallowedThingDefs>
+	    <li>MedicineHerbal</li>
+		<li>MedicineIndustrial</li>
+      </disallowedThingDefs>
     </fixedIngredientFilter>
     <defaultIngredientFilter>
       <thingDefs>
-        <li>Human_Corpse</li>
+        <li>Corpse_Human</li>
+		<li>MedicineUltratech</li>
       </thingDefs>
       <specialFiltersToAllow>
         <li>AllowCorpsesColonist</li>
@@ -199,9 +234,9 @@
       <categories>
         <li>CorpsesAnimal</li>
       </categories>
-      <exceptedCategories>
+      <disallowedCategories>
         <li>CorpsesMechanoid</li>
-      </exceptedCategories>
+      </disallowedCategories>
       <specialFiltersToAllow>
         <li>PossibleToHarvestAnimal</li>
       </specialFiltersToAllow>

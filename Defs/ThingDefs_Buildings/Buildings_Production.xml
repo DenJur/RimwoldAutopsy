@@ -7,11 +7,12 @@
     <label>autopsy table</label>
     <description>A table specially designed for deceased people. Allows for surgical removal of organs.</description>
     <thingClass>Building_WorkTable</thingClass>
+	<interactionCellIcon></interactionCellIcon>
     <graphicData>
       <texPath>Things/Building/Furniture/Bed/HospitalBed</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
-      <drawSize>(3,4)</drawSize>
+      <drawSize>(2,2)</drawSize>
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
     <statBases>
