@@ -8,7 +8,8 @@ using Verse;
 namespace Autopsy
 {
     [HarmonyPatch(typeof(GenRecipe), nameof(GenRecipe.MakeRecipeProducts))]
-    public static class MakeRecipeProductsnPatch
+    [HarmonyPatch(MethodType.Normal)]
+    public static class MakeRecipeProductsPatch
     {
         [HarmonyPostfix]
         public static void Postfix(ref IEnumerable<Thing> __result, RecipeDef recipeDef, Pawn worker,
@@ -67,10 +68,10 @@ namespace Autopsy
 
                 if (recipeDef.Equals(AutopsyRecipeDefs.AutopsyBasic))
                 {
-                    worker.needs.mood.thoughts.memories.TryGainMemory(AutopsyRecipeDefs.HarvestedHumanlikeCorpse, null);
+                    worker.needs?.mood?.thoughts?.memories?.TryGainMemory(AutopsyRecipeDefs.HarvestedHumanlikeCorpse, null);
                     foreach (Pawn pawn in worker.Map.mapPawns.SpawnedPawnsInFaction(worker.Faction))
                         if (pawn != worker)
-                            pawn.needs?.mood?.thoughts?.memories.TryGainMemory(
+                            pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(
                                 AutopsyRecipeDefs.KnowHarvestedHumanlikeCorpse, null);
                 }
 

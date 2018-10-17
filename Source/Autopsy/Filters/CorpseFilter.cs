@@ -22,11 +22,6 @@ namespace Autopsy.Filters
             return DoesMatch(t as Corpse);
         }
 
-        public override bool AlwaysMatches(ThingDef def)
-        {
-            return false;
-        }
-
         public override bool CanEverMatch(ThingDef def)
         {
             return def.IsWithinCategory(ThingCategoryDefOf.Corpses);
