@@ -33,13 +33,13 @@ namespace Autopsy
                 queue.AddRange(part.parts.Where(x => !hediffSet.PartIsMissing(x)));
             }
 
+            foreach (BodyPartRecord part in damagedParts) DamageHarvested(corpse.InnerPawn, part);
+
             if (results.Count > recipeInfo.PartNumber)
             {
                 Random random = new Random();
                 return results.OrderBy(i => random.Next()).Take(recipeInfo.PartNumber);
             }
-
-            foreach (BodyPartRecord part in damagedParts) DamageHarvested(corpse.InnerPawn, part);
 
             return results;
         }
@@ -70,6 +70,9 @@ namespace Autopsy
             {
                 result.AddRange(bion.Where(x => Rand.Chance(Math.Min(skillChance, recipeInfo.BionicChance)))
                     .Select(x => ThingMaker.MakeThing(x.def.spawnThingOnRemoved)));
+                if(!part.def.destroyableByDamage)
+                    bion.ForEach(x=>
+                        corpse.InnerPawn.health.RemoveHediff(x));
                 damagedParts.Add(part);
                 return true;
             }
@@ -109,7 +112,7 @@ namespace Autopsy
                     continue;
                 }
 
-                int num = Mathf.Max(3, GenMath.RoundRandom(partHealth * Rand.Range(0.5f, 1f)));
+                int num = Rand.Range(1,3);
 
                 DamagePart(p, num, bodyPartRecord);
 
@@ -119,14 +122,12 @@ namespace Autopsy
 
         public static void DamagePart(Pawn p, int damage, BodyPartRecord part)
         {
-            DamageDef def = Rand.Element(DamageDefOf.Cut, DamageDefOf.Stab);
-
-            HediffDef hediffDefFromDamage = HealthUtility.GetHediffDefFromDamage(def, p, part);
+            HediffDef hediffDefFromDamage = HealthUtility.GetHediffDefFromDamage(DamageDefOf.SurgicalCut, p, part);
 
             Hediff_Injury injury = (Hediff_Injury) HediffMaker.MakeHediff(hediffDefFromDamage, p, part);
             injury.Severity = damage;
 
-            p.health.AddHediff(injury, part, new DamageInfo(def, damage, 999f, -1f, null, part));
+            p.health.AddHediff(injury, part, new DamageInfo(DamageDefOf.SurgicalCut, damage, 999f, -1f, null, part));
             GenLeaving.DropFilthDueToDamage(p, damage);
         }
     }
