@@ -3,6 +3,8 @@
 <ModMetaData>
   <name>Harvest Organs Post Mortem - 4.1 [1.0]</name>
   <author>Smuffle</author>
-  <targetVersion>1.0.2059</targetVersion>
+  <supportedVersions>
+    <li>1.0</li>
+  </supportedVersions>
   <description>This mod allow organ harvest on dead bodies. This a new version which allows the player to harvest pawn-spesific organs.</description>
 </ModMetaData>
