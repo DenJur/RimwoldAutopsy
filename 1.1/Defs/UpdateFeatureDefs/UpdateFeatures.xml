@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+  <HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+    <modNameReadable>Harvest Organs Post Mortem</modNameReadable>
+    <modIdentifier>Autopsy</modIdentifier>
+    <linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1204502413</linkUrl>
+  </HugsLib.UpdateFeatureDef>
+  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+    <defName>Autopsy_2_7_0</defName>
+    <assemblyVersion>2.7.0</assemblyVersion>
+    <content>
+      Harvest Organs Post Mortem mod had a major update. Now you are able to modify all of the mods settings from game settings menu.|
+      Options include:
+      - Harvest chances for both natural organs and bionics.
+      - Age of the corpse at which it is still possible to harvest natural organs.
+      - Scaling for pawns medical surgery success chance while performing autopsy.
+      - &lt;color=#890000ff&gt;&lt;b&gt;!New!&lt;/b&gt;&lt;/color&gt; Maximal number of organs/bionics that can be harvested in a single operation.
+    </content>
+  </HugsLib.UpdateFeatureDef>
+  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+    <defName>Autopsy_3_0_0</defName>
+    <assemblyVersion>3.0.0</assemblyVersion>
+    <content>
+      Some requested features.|
+      New features:
+      - Bodies are retained after autopsy.
+      - Animal autopsy was merged into the main mod.
+      - Added corpse filter to recipes and stockpiles. Values from glitterworld recipes are used for filters.
+      - Default butcher debuffs no longer apply.
+      - Custom debuff for basic autopsy.
+    </content>
+  </HugsLib.UpdateFeatureDef>
+  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+    <defName>Autopsy_3_0_3</defName>
+    <assemblyVersion>3.0.3</assemblyVersion>
+    <content>
+      Due to a bug Basic Autopsy recipe was removed from the butchering table. Autopsy table is now unlocked after reaserching Basic Autopsy. &lt;color=#890000ff&gt;&lt;b&gt;If you have an ongoing game you will recieve one time error and you should manualy remove all Basic Autopsy bills from your butchering tables.&lt;/b&gt;&lt;/color&gt;
+    </content>
+  </HugsLib.UpdateFeatureDef>
+</Defs>

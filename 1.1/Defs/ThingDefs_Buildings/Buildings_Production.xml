@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+  <ThingDef ParentName="BenchBase">
+    <defName>TableAutopsy</defName>
+    <label>autopsy table</label>
+    <description>A table specially designed for deceased people. Allows for surgical removal of organs.</description>
+    <thingClass>Building_WorkTable</thingClass>
+	<interactionCellIcon></interactionCellIcon>
+    <graphicData>
+      <texPath>Things/Building/Furniture/Bed/HospitalBed</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>2850</WorkToBuild>
+      <Mass>45</Mass>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <size>(1,2)</size>
+    <designationCategory>Production</designationCategory>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>40</costStuffCount>
+    <costList>
+      <Steel>80</Steel>
+    </costList>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <recipes>
+      <li>AutopsyBasic</li>
+      <li>AutopsyAdvanced</li>
+      <li>AutopsyGlitterworld</li>
+      <li>AutopsyAnimal</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <bed_showSleeperBody>True</bed_showSleeperBody>
+      <bed_healPerDay>0</bed_healPerDay>
+      <bed_defaultMedical>true</bed_defaultMedical>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <fillPercent>0.4</fillPercent>
+    <pathCost>60</pathCost>
+    <leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+    <staticSunShadowHeight>0.17</staticSunShadowHeight>
+    <castEdgeShadows>True</castEdgeShadows>
+    <designationHotKey>Misc5</designationHotKey>
+    <passability>PassThroughOnly</passability>
+    <drawGUIOverlay>True</drawGUIOverlay>
+    <canOverlapZones>false</canOverlapZones>
+    <researchPrerequisites>
+      <li>BasicAutopsy</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+</Defs>
