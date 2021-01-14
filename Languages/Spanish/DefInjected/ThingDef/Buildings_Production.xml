@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <TableAutopsy.label>Mesa De Autopsia</TableAutopsy.label>
+  <TableAutopsy.description>Una Mesa Especialmente Diseñada Para Personas Fallecidas. Permite La Extirpación Quirúrgica De Órganos.</TableAutopsy.description>
+  <TableAutopsy_Blueprint.label>Mesa De Autopsia (Plano)</TableAutopsy_Blueprint.label>
+  <TableAutopsy_Blueprint_Install.label>Mesa De Autopsia (Plano)</TableAutopsy_Blueprint_Install.label>
+  <TableAutopsy_Frame.label>Mesa De Autopsia (Construcción)</TableAutopsy_Frame.label>
+  <TableAutopsy_Frame.description>Una Mesa Especialmente Diseñada Para Personas Fallecidas. Permite La Extirpación Quirúrgica De Órganos.</TableAutopsy_Frame.description>
+
+
+</LanguageData>

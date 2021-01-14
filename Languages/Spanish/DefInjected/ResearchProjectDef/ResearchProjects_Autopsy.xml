@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <BasicAutopsy.label>Autopsia Básica</BasicAutopsy.label>
+  <BasicAutopsy.description>El Troceado Primordial De Órganos, a Menudo Utilizada En Rituales. Sin Embargo Bastante Bárbaro. Esta Investigación Desbloquea La Mesa De Autopsias.</BasicAutopsy.description>
+
+  <AdvancedAutopsy.label>Autopsia Avanzada</AdvancedAutopsy.label>
+  <AdvancedAutopsy.description>Los Procedimientos Avanzados Permiten Una Extracción De Órganos Más Humana y Precisa.</AdvancedAutopsy.description>
+
+  <GlitterworldAutopsy.label>Autopsia MundoBrillante</GlitterworldAutopsy.label>
+  <GlitterworldAutopsy.description>Con Las Herramientas, La Capacitación y La Tecnología Adecuadas, Puede Conservar Los Órganos Humanos Con Las Mismas Posibilidades De Éxito Que En Los Planetas Centrales..</GlitterworldAutopsy.description>
+
+  <AnimalAutopsy.label>Autopsia Animal</AnimalAutopsy.label>
+  <AnimalAutopsy.description>Permite La Extracción Médica De Partes Del Cuerpo Biónicas De Animales Fallecidos.</AnimalAutopsy.description>
+
+
+</LanguageData>

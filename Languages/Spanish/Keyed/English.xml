@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+
+  <autopsyBasicTab>Autopsia Básica</autopsyBasicTab>
+  <autopsyAdvancedTab>Autopsia Avanzada</autopsyAdvancedTab>
+  <autopsyGlitterTab>Autopsia MundoBrillante</autopsyGlitterTab>
+  <autopsyAnimalTab>Autopsia Animal</autopsyAnimalTab>
+  <organChanceTitle>Posibilidad De Sustracción De Órganos</organChanceTitle>
+  <organChanceDescription>Posibilidad Máxima De Sustraer Cada Órgano Individual Cuando Se Usa Una Receta Específica. El Valor Real Es Igual a La Probabilidad De Éxito De La Cirugía.</organChanceDescription>
+  <bionicChanceTitle>Posibilidad De Sustracción Biónica</bionicChanceTitle>
+  <bionicChanceDescription>Posibilidad Máxima De Sustraer Cada Componente Biónico Individual Cuando Se Usa Una Receta Específica. El Valor Real Es Igual a La Probabilidad De Éxito De La Cirugía.</bionicChanceDescription>
+  <corpseAgeTitle>Edad Del Cadáver Válida</corpseAgeTitle>
+  <corpseAgeDescription>Número De Horas Durante Las Cuales Se Pueden Sustraer Órganos Naturales</corpseAgeDescription>
+  <numberPartsTitle>Número Máximo De Partes</numberPartsTitle>
+  <numberPartsDescription>Número Máximo De Órganos y Biónicos Que Se Pueden Extraer De Un Solo Cadáver</numberPartsDescription>
+  <skillScalingTitle>Escala De Habilidades Médicas</skillScalingTitle>
+  <skillScalingDescription>Determina Cuánto Escalan Las Probabilidades De Éxito De La Cirugía Médica Al Realizar Una Autopsia</skillScalingDescription>
+  <frozenDecayTitle>Descomposición Mientras Esta Congelado</frozenDecayTitle>
+  <frozenDecayDescription>Establece Qué Tan Rápido Se Descomponen Los Órganos Naturales Mientras El Cuerpo Está Congelado En Comparación Con El Calor</frozenDecayDescription>
+
+</LanguageData>
