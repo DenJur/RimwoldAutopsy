@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AutopsyBasic.label>Trocear Por Órganos</AutopsyBasic.label>
+  <AutopsyBasic.description>Trocea a Una Criatura Para Obtener Sus Órganos Internos Mientras Siguen Frescos.</AutopsyBasic.description>
+  <AutopsyBasic.jobString>Troceando.</AutopsyBasic.jobString>
+
+  <AutopsyAdvanced.label>Extraer Órganos Médicamente</AutopsyAdvanced.label>
+  <AutopsyAdvanced.description>Extrae Médicamente Los Órganos Antes De Que Se Pudran.</AutopsyAdvanced.description>
+  <AutopsyAdvanced.jobString>Operando.</AutopsyAdvanced.jobString>
+
+  <AutopsyGlitterworld.label>Preservar Órganos Médicamente Con Medicina</AutopsyGlitterworld.label>
+  <AutopsyGlitterworld.description>A Través De Entrenamiento y Suministros De Calidad Prístina, Puede Extraer Los Órganos Con La Posibilidad De Éxito Como En Los Mundos Centrales.</AutopsyGlitterworld.description>
+  <AutopsyGlitterworld.jobString>Operando.</AutopsyGlitterworld.jobString>
+
+  <AutopsyAnimal.label>Extraer Partes Biónicas De Un Animal</AutopsyAnimal.label>
+  <AutopsyAnimal.description>Extrae Médicamente Las Partes Biónicas De Un Animal.</AutopsyAnimal.description>
+  <AutopsyAnimal.jobString>Operando.</AutopsyAnimal.jobString>
+
+  <BurnBodyParts.label>Quemar Partes Del Cuerpo</BurnBodyParts.label>
+  <BurnBodyParts.description>Quema Partes Naturales Del Cuerpo Para Destrozarlas Completamente.</BurnBodyParts.description>
+  <BurnBodyParts.jobString>Quemando Partes Corporales.</BurnBodyParts.jobString>
+
+
+</LanguageData>

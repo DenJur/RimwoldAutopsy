@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ImpossibleToHarvest.label>Imposible De Obtener</ImpossibleToHarvest.label>
+  <ImpossibleToHarvest.description>Permitir Cadáveres Sin Órganos o Implantes Obtenibles.</ImpossibleToHarvest.description>
+
+  <PossibleToHarvest.label>Posible De Obtener</PossibleToHarvest.label>
+  <PossibleToHarvest.description>Permitir Cadáveres Con Órganos o Implantes Obtenibles Restantes.</PossibleToHarvest.description>
+
+  <HasBionics.label>Cadáveres Humanos Con Partes Biónicas</HasBionics.label>
+  <HasBionics.description>Permitir Solo Cuerpos Humanos Con Partes Biónicas .</HasBionics.description>
+
+  <DoesntHaveBionics.label>Cadáveres Humanos Sin Partes Biónicas</DoesntHaveBionics.label>
+  <DoesntHaveBionics.description>Permitir Solo Cuerpos Humanos Sin Partes Biónicas.</DoesntHaveBionics.description>
+
+  <ImpossibleToHarvestAnimal.label>Imposible De Obtener(Animal)</ImpossibleToHarvestAnimal.label>
+  <ImpossibleToHarvestAnimal.description>Permitir Cadáveres De Animales Sin Implantes Obtenibles.</ImpossibleToHarvestAnimal.description>
+
+  <PossibleToHarvestAnimal.label>Posible De Obtener(Animal)</PossibleToHarvestAnimal.label>
+  <PossibleToHarvestAnimal.description>Permitir Cadáveres De Animales Con Implantes Obtenibles.</PossibleToHarvestAnimal.description>
+
+
+</LanguageData>
