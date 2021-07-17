@@ -101,8 +101,8 @@ namespace Autopsy
                 if ((DateTime.Now - start).TotalSeconds > 1)
                     return;
 
-                if (!bodyPartRecords.TryRandomElementByWeight(x => x.coverageAbs, out BodyPartRecord bodyPartRecord)
-                ) return;
+                if (!bodyPartRecords.TryRandomElementByWeight(x => x.coverageAbs, out BodyPartRecord bodyPartRecord)) 
+                    return;
 
                 partHealth = p.health.hediffSet.GetPartHealth(bodyPartRecord);
 
